@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../components/Card';
+import './ReadPosts.css'
 
 const ReadPosts = (props) => {
     const [posts, setPosts] = useState([]);

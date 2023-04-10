@@ -17,10 +17,7 @@ const Card = (props) =>  {
           <Link to={'edit/'+ props.id}><img className="moreButton" alt="edit button" src={more} /></Link>
           <h2 className="title">{props.title}</h2>
           <h3 className="class">{"Class: " + props.class}</h3>
-          <a href={'/details/' + props.id}>
-            <button className="details">Details</button>
-          </a>
-          
+          <Link to={'details/'+ props.id}><button className="details" alt="edit button" src={more}>Details</button></Link>   
       </div>
   );
 };

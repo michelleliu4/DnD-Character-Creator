@@ -8,7 +8,6 @@ import Details from './pages/Details'
 import { Link } from 'react-router-dom'
 import { supabase } from './client'
 
-
 const App = () => {
   const [posts, setPosts] = useState([]);
 
@@ -20,43 +19,40 @@ const App = () => {
         .order('created_at', { ascending: true })
 
         // set state of posts
-        setPosts(data);
+          setPosts(data);
     }
     fetchPosts();
-  }, [])
+  }, []);
   
   // Sets up routes
   let element = useRoutes([
     {
       path: "/",
-      element:<ReadPosts data={posts}/>
+      element: <ReadPosts data={posts}/>
     },
     {
-      path:"/edit/:id",
+      path: "/edit/:id",
       element: <EditPost data={posts} />
     },
     {
-      path:"/new",
+      path: "/new",
       element: <CreatePost />
     },
     {
-      path:"/details/:id",
+      path: "/details/:id",
       element: <Details data={posts} />
     }
   ]);
 
   return ( 
-
     <div className="App">
-
       <div className="header">
         <h1>DnD Character Creator</h1>
-        <Link to="/"><button className="headerBtn"> Explore Characters  </button></Link>
+        <Link to="/"><button className="headerBtn"> Explore Characters </button></Link>
         <Link to="/new"><button className="headerBtn"> Create Character </button></Link>
       </div>
         {element}
     </div>
-
   );
 }
 
